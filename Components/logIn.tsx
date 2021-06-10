@@ -7,28 +7,63 @@ import {
   Image,
   ImageBackground,
   Button,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  Alert,
+  Platform,
+  Dimensions,
+  TextInput,
 } from "react-native";
+
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 import book from "../Img/book1.png";
 
+function LogIn() {
+  const [text, onChangeText] = React.useState("");
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>BOOK ME</Text>
+
+      <View style={styles.button}>
+        <TextInput style={styles.input} value={text} placeholder="Email" />
+        <TextInput style={styles.input} value={text} placeholder="Password" />
+
+        <Button
+          title="Log in"
+          color="#867ae9"
+          onPress={() => console.log("Hi")}
+        ></Button>
+      </View>
+      <TouchableOpacity onPress={() => console.log("hi")}>
+        <Image style={styles.img} source={book} />
+      </TouchableOpacity>
+    </View>
+  );
+}
 const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
+    backgroundColor: "gold",
+    width: 414,
   },
-  stretch: {
-    width: 200,
-    height: 450,
-    resizeMode: "stretch",
-  },
-  text: {
+
+  title: {
     color: "#867ae9",
     fontSize: 20,
-    fontEight: "bold",
+    fontWeight: "bold",
+    textAlign: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.length : 0,
   },
-  text1: {
-    color: "#867ae9",
-    fontSize: 10,
-    fontEight: "bold",
+
+  input: {
+    borderWidth: 1,
+    borderRadius: 5,
+    flex: 1,
+    flexDirection: "column",
   },
   button: {
     flexDirection: "row",
@@ -36,25 +71,11 @@ const styles = StyleSheet.create({
     width: 50,
     borderColor: "#000000",
   },
+  img: {
+    width: 414,
+    height: 730,
+    fadeDuration: 3000,
+    resizeMode: "center",
+  },
 });
-
-function LogIn() {
-  return (
-    <View style={styles.container}>
-      <ImageBackground style={styles.stretch} source={book}>
-        <Text style={styles.text}>READ EVERYWHERE</Text>
-
-        <Text style={styles.text1}>Log in </Text>
-        <View style={styles.button}>
-          <Button
-            title="Email"
-            color="#867ae9"
-            onPress={() => Alert.alert("hi")}
-          ></Button>
-        </View>
-      </ImageBackground>
-    </View>
-  );
-}
-
 export default LogIn;
