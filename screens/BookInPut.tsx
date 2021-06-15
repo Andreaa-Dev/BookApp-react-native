@@ -1,7 +1,7 @@
 import React from "react";
 
-function Page1() {
+function BookInPut() {
   return <div></div>;
 }
 
-export default Page1;
+export default BookInPut;
