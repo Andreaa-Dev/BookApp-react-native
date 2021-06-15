@@ -16,13 +16,13 @@ import * as Font from "expo-font";
 
 import Header from "./screens/Header";
 import LogIn from "./screens/LogIn";
-import Page1 from "./screens/Page1";
+import MainPage from "./screens/MainPage";
 
-import bookMainPage from "./Img/bookMainPage.png";
+import bookMainPage from "./Img/welcome.png";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#e4bced",
+    // backgroundColor: "#e4bced",
     height: "100%",
     width: "100%",
     flex: 1,
@@ -62,7 +62,7 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity
         style={styles.button}
         activeOpacity={0.8}
-        onPress={() => navigation.navigate("Log in")}
+        onPress={() => navigation.navigate("LogIn")}
       >
         <Text style={styles.text}>LOG IN </Text>
       </TouchableOpacity>
@@ -94,6 +94,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="LogIn" component={LogIn} />
+        <Stack.Screen name="MainPage" component={MainPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

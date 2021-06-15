@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { TextInput } from "react-native";
 // scrollview make item scrollable
-import { StyleSheet, View, Text, ScrollView, FlatList } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  FlatList,
+  Image,
+} from "react-native";
 
-function Page1() {
+import comic from "../Img/comic.png";
+function MainPage() {
   const [enteredBook, setEnteredBook] = useState("");
   const [bookList, setBookList] = useState([]);
 
@@ -22,20 +29,25 @@ function Page1() {
   };
 
   const styles = StyleSheet.create({
-    container: {
-      fontFamily: "monospace",
-    },
+    container: {},
     title: {
-      fontSize: 1,
+      fontFamily: "indie-flower",
+      fontSize: 30,
     },
     input: {
       fontSize: 2,
     },
+    img: {
+      height: 50,
+      width: 50,
+    },
   });
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>BOOK ME</Text>
-      <TextInput
+      <Text style={styles.title}>BOOKIES</Text>
+      <Image style={styles.img} source={comic} />
+
+      {/* <TextInput
         style={styles.input}
         placeholder="Your book"
         onChangeText={bookInputHandler}
@@ -44,9 +56,9 @@ function Page1() {
         keyExtractor={(item, index) => item.id}
         data={bookList}
         renderItem={(itemData) => <Text>{itemData.item}</Text>}
-      ></FlatList>
+      ></FlatList> */}
     </View>
   );
 }
 
-export default Page1;
+export default MainPage;

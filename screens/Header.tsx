@@ -3,11 +3,6 @@ import { StyleSheet, View, Text } from "react-native";
 
 function Header(props) {
   const { title } = props;
-  return (
-    <View style={styles.header}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
   const styles = StyleSheet.create({
     header: {
       width: "100%",
@@ -17,8 +12,13 @@ function Header(props) {
       alignItems: "center",
     },
     title: {
-      color: "black",
+      fontFamily: "indie-flower",
     },
   });
+  return (
+    <View style={styles.header}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
 }
 export default Header;
